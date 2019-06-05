@@ -15,6 +15,14 @@ class IceCreamsController < ApplicationController
     end
   end
 
+  def index
+    @ice_creams = IceCream.all
+  end
+
+  def show
+    @ice_cream = IceCream.find_by_id(params[:id])
+  end
+
   private
 
   def ice_cream_params

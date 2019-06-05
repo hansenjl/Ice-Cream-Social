@@ -1,0 +1,9 @@
+<h1>All the Ice Creams</h1>
+
+<% @ice_creams.each do |ic| %>
+
+  <h2><%= ic.flavor%> - <%= ic.brand.name %> </h2>
+  <div>
+    <p><%= ic.description %></p>
+  </div>
+<% end %>
