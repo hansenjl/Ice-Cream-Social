@@ -1,0 +1,36 @@
+<% if params[:ice_cream_id] %>
+  <h1>Add a Review for <%= @review.ice_cream.flavor%> - <%= @review.ice_cream.brand.name%></h1>
+<% else %>
+  <h1>Create a review </h1>
+<% end %>
+
+<%= form_for(@review) do |f|%>
+  <% if params[:ice_cream_id] %>
+    <%= f.hidden_field :ice_cream_id %>
+  <% else %>
+    <div>
+      <%= f.label :ice_cream_id, "Select an Ice Cream" %>
+      <%= f.collection_select :ice_cream_id, IceCream.all, :id, :flavor %>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :stars %>
+    <%= f.number_field :stars, min:0, max:5 %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content, size: "25x10" %>
+  </div>
+  <br>
+
+
+
+  <%= f.submit %>
+
+<% end %>

@@ -3,6 +3,7 @@
 <% @ice_creams.each do |ic| %>
 
   <h2><%= ic.flavor%> - <%= ic.brand.name %> </h2>
+  <%= link_to "Write a review", new_ice_cream_review_path(ic.id)%>
   <div>
     <p><%= ic.description %></p>
   </div>
