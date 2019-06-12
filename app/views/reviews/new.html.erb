@@ -10,7 +10,7 @@
   <% else %>
     <div>
       <%= f.label :ice_cream_id, "Select an Ice Cream" %>
-      <%= f.collection_select :ice_cream_id, IceCream.all, :id, :flavor %>
+      <%= f.collection_select :ice_cream_id, IceCream.all, :id, :flavor, include_blank: true %>
     </div>
   <% end %>
   <div>

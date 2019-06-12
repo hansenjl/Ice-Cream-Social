@@ -6,6 +6,6 @@
 
 <ul>
 <% @reviews.each do |r| %>
-  <li><%= r.ice_cream.flavor%>: <%= r.title%> - <%= r.stars%></li> <br>
+  <li><%= r.ice_cream.flavor%>: <%= link_to r.title, review_path(r)%> - <%= r.stars%></li> <br>
 <% end %>
 </ul>
