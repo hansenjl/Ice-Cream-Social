@@ -1,5 +1,20 @@
 <h1>Make a new ice cream!</h1>
 
+<% if @ice_cream.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@ice_cream.errors.count, "error") %>
+      prohibited this ice_cream from being saved:
+    </h2>
+
+    <ul>
+    <% @ice_cream.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@ice_cream) do |f|%>
   <div>
     <%= f.label :flavor %>
