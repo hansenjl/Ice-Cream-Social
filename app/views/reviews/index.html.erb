@@ -1,4 +1,8 @@
-<h1>All the Reviews</h1>
+<% if @ice_cream %>
+  <h1>Reviews for <%= @ice_cream.flavor%> - <%= @ice_cream.brand.name%></h1>
+<% else %>
+  <h1>All the Reviews </h1>
+<% end %>
 
 <ul>
 <% @reviews.each do |r| %>
