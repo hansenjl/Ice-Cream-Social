@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   post '/signup' => 'users#create'
   delete '/logout' => 'sessions#destroy'
 
+  get '/ice_creams/top_three' => 'ice_creams#top_three'
+
 
   resources :reviews
   resources :ice_creams do

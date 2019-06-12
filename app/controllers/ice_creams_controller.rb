@@ -15,6 +15,11 @@ class IceCreamsController < ApplicationController
     end
   end
 
+  def top_three
+    @ice_creams = IceCream.top_three.includes(:brand)
+    render 'index'
+  end
+
   def index
     @ice_creams = IceCream.all
   end
