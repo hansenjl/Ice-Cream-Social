@@ -1,8 +1,9 @@
-<% if params[:ice_cream_id] %>
-  <h1>Add a Review for <%= @review.ice_cream.flavor%> - <%= @review.ice_cream.brand.name%></h1>
-<% else %>
-  <h1>Create a review </h1>
-<% end %>
+
+<%=  display_header(@review)%>
+
+<%= render partial: 'layouts/errors', locals: {object: @review}  %>
+
+
 
 <%= form_for(@review) do |f|%>
   <% if params[:ice_cream_id] %>
@@ -10,7 +11,7 @@
   <% else %>
     <div>
       <%= f.label :ice_cream_id, "Select an Ice Cream" %>
-      <%= f.collection_select :ice_cream_id, IceCream.all, :id, :flavor, include_blank: true %>
+      <%= f.collection_select :ice_cream_id, IceCream.alpha, :id, :flavor_and_brand, include_blank: true %>
     </div>
   <% end %>
   <div>

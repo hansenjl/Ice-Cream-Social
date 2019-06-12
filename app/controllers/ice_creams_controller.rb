@@ -8,7 +8,7 @@ class IceCreamsController < ApplicationController
   def create
      @ice_cream = IceCream.new(ice_cream_params)
      @ice_cream.user_id = session[:user_id]
-    if @ice_cream.save
+    if @ice_cream.save #this is where validations happen
       redirect_to ice_cream_path(@ice_cream)
     else
       render :new
@@ -16,7 +16,7 @@ class IceCreamsController < ApplicationController
   end
 
   def index
-    @ice_creams = IceCream.all
+    @ice_creams = IceCream.order_by_rating.includes(:brand)
   end
 
   def show

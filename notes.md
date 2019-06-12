@@ -9,7 +9,8 @@ To Do:
 4. Displaying flavor and brand in collection select drop down for new review form
 
 5. Scope methods for the following:
-    - listing brands alphabetically
+    - order ice creams alphabetically
+    - order ice creams by brand
     - avg. rating for an ice cream
     - highest rated ice cream
     - lowest rated ice cream
