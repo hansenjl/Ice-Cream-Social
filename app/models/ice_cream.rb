@@ -6,7 +6,7 @@ class IceCream < ApplicationRecord
 
 
   def brand_attributes=(attributes)
-    brand = Brand.find_or_create_by(attributes) if !name.empty?
+    brand = Brand.find_or_create_by(attributes) if !attributes['name'].empty?
   end
 
 end
