@@ -32,6 +32,11 @@ class SessionsController < ApplicationController
       @user.save
       session[:user_id] = @user.id
       redirect_to user_path(@user)
+    elsif params[:provider] == 'github'
+      @user = User.from_github_omniauth(auth)
+      @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
       redirect_to login_path
     end
