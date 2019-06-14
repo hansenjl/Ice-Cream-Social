@@ -25,5 +25,21 @@ class SessionsController < ApplicationController
       redirect_to login_path
     end
   end
+
+  def omniauth
+    if params[:provider] == 'google_oauth2'
+      @user = User.from_google_omniauth(auth)
+      @user.save
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      redirect_to login_path
+    end
+  end
+
+  private
+    def auth
+      request.env['omniauth.auth']
+    end
 end
 

@@ -8,6 +8,13 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  def self.from_google_omniauth(auth)
+      where(username: auth.info.email).first_or_initialize do |user|
+      user.username = auth.info.email
+      user.password = SecureRandom.hex
+    end
+  end
+
 end
 
 
