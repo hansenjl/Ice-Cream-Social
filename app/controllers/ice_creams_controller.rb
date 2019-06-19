@@ -8,9 +8,13 @@ class IceCreamsController < ApplicationController
   def create
      @ice_cream = IceCream.new(ice_cream_params)
      @ice_cream.user_id = session[:user_id]
+
     if @ice_cream.save #this is where validations happen
+      @ice_cream.image.purge
+      @ice_cream.image.attach(params[:ice_cream][:image])
       redirect_to ice_cream_path(@ice_cream)
     else
+      @ice_cream.build_brand
       render :new
     end
   end
