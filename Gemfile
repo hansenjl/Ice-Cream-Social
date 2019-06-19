@@ -33,6 +33,9 @@ gem 'omniauth'
 gem 'dotenv-rails'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
+gem 'omniauth-twitter'
+
+gem "aws-sdk-s3", require: false
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

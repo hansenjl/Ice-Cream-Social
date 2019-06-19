@@ -1,6 +1,12 @@
 <h1><%= @ice_cream.flavor%>  </h1>
 
-<h2><%= @ice_cream.flavor%> - <%= @ice_cream.brand.name %> </h2>
+<h2> <%= @ice_cream.brand.name %> </h2>
+
+<%= image_tag url_for(@ice_cream.photo) %>
+
+
 <div>
   <p><%= @ice_cream.description %></p>
 </div>
+
+

@@ -11,6 +11,7 @@ class IceCreamsController < ApplicationController
     if @ice_cream.save #this is where validations happen
       redirect_to ice_cream_path(@ice_cream)
     else
+      @ice_cream.build_brand
       render :new
     end
   end
@@ -26,7 +27,7 @@ class IceCreamsController < ApplicationController
   private
 
   def ice_cream_params
-    params.require(:ice_cream).permit(:flavor, :description, :brand_id, brand_attributes: [:name])
+    params.require(:ice_cream).permit(:flavor, :description, :photo, :brand_id, brand_attributes: [:name])
   end
 
 end

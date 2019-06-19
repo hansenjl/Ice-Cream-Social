@@ -47,6 +47,22 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
+    aws-eventstream (1.0.3)
+    aws-partitions (1.176.0)
+    aws-sdk-core (3.56.0)
+      aws-eventstream (~> 1.0, >= 1.0.2)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.22.0)
+      aws-sdk-core (~> 3, >= 3.56.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.43.0)
+      aws-sdk-core (~> 3, >= 3.56.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.1)
+    aws-sigv4 (1.1.0)
+      aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.12)
     bindex (0.7.0)
     bootsnap (1.4.4)
@@ -92,6 +108,7 @@ GEM
     io-like (0.3.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    jmespath (1.4.0)
     jwt (2.2.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -116,6 +133,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
+    oauth (0.5.4)
     oauth2 (1.4.1)
       faraday (>= 0.8, < 0.16.0)
       jwt (>= 1.0, < 3.0)
@@ -132,9 +150,15 @@ GEM
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
       omniauth-oauth2 (>= 1.5)
+    omniauth-oauth (1.1.0)
+      oauth
+      omniauth (~> 1.0)
     omniauth-oauth2 (1.6.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
+    omniauth-twitter (1.4.0)
+      omniauth-oauth (~> 1.1)
+      rack
     public_suffix (3.0.3)
     puma (3.12.1)
     rack (2.0.7)
@@ -223,6 +247,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk-s3
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.1.0)
   byebug
@@ -235,6 +260,7 @@ DEPENDENCIES
   omniauth
   omniauth-github
   omniauth-google-oauth2
+  omniauth-twitter
   puma (~> 3.11)
   rails (~> 5.2.3)
   sass-rails (~> 5.0)

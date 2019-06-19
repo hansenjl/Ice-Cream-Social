@@ -3,6 +3,7 @@ class IceCream < ApplicationRecord
   belongs_to :user #creator of it
   has_many :reviews
   has_many :users, through: :reviews #people who have reviewed it
+  has_one_attached :photo
 
   validates :flavor, presence: true
   validate :not_a_duplicate
@@ -16,6 +17,7 @@ class IceCream < ApplicationRecord
 
   def brand_attributes=(attributes)
     brand = Brand.find_or_create_by(attributes) if !attributes['name'].empty?
+    self.brand
   end
 
   def not_a_duplicate
