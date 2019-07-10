@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :ice_creams #that they have created
 
   validates :username, uniqueness: true,  presence: true
+  validates :email, presence: true
 
   has_secure_password
 
