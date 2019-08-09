@@ -8,3 +8,5 @@
 <div>
   <p><%= @ice_cream.description %></p>
 </div>
+
+<%= link_to "Edit #{@ice_cream.flavor}", edit_ice_cream_path(@ice_cream) if @ice_cream.user == current_user%>

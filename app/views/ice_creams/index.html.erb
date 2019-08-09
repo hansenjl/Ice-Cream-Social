@@ -2,7 +2,7 @@
 
 <% @ice_creams.each do |ic| %>
 
-  <h2><%= ic.flavor%> - <%= ic.brand.name %> </h2>
+  <h2><%= link_to ic.flavor, ice_cream_path(ic.id)%> - <%= ic.brand.name %> </h2>
   <%= link_to "Write a review", new_ice_cream_review_path(ic.id)%>
   <% if ic.image.attached? %>
     <%= image_tag url_for(ic.thumbnail)%>

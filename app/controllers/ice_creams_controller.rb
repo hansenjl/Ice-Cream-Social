@@ -1,5 +1,5 @@
 class IceCreamsController < ApplicationController
-
+  before_action :set_ice_cream, only:[:show, :edit, :update]
   def new
     @ice_cream = IceCream.new
     @ice_cream.build_brand
@@ -24,13 +24,29 @@ class IceCreamsController < ApplicationController
   end
 
   def show
-    @ice_cream = IceCream.find_by_id(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+
+    if @ice_cream.update(ice_cream_params)
+      redirect_to ice_cream_path(@ice_cream)
+    else
+      render :edit
+    end
   end
 
   private
 
   def ice_cream_params
     params.require(:ice_cream).permit(:flavor, :description, :brand_id, brand_attributes: [:name])
+  end
+
+  def set_ice_cream
+     @ice_cream = IceCream.find_by_id(params[:id])
+     redirect_to ice_creams_path if !@ice_cream
   end
 
 end
