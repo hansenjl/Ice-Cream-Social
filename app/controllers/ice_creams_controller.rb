@@ -33,6 +33,8 @@ class IceCreamsController < ApplicationController
 
   def update
     if @ice_cream.update(ice_cream_params)
+      @ice_cream.image.purge
+      @ice_cream.image.attach(params[:ice_cream][:image])
       redirect_to ice_cream_path(@ice_cream)
     else
       render :edit
