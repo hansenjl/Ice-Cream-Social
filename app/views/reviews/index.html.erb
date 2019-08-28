@@ -1,11 +1,11 @@
 <% if @ice_cream %>
-  <h1>Reviews for <%= @ice_cream.flavor%> - <%= @ice_cream.brand.name%></h1>
+  <h1>Reviews for <%= @ice_cream.flavor%> - <%= @ice_cream.brand_name%></h1>
 <% else %>
   <h1>All the Reviews </h1>
 <% end %>
 
 <ul>
-<% @reviews.each do |r| %>
-  <li><%= r.ice_cream.flavor%>: <%= link_to r.title, review_path(r)%> - <%= r.stars%></li> <br>
+<% @reviews.each do |review| %>
+  <li><%= @review.ice_cream.flavor%>: <%= link_to @review.title, review_path(review)%> - <%= @review.stars%></li> <br>
 <% end %>
 </ul>
