@@ -1,5 +1,7 @@
 class IceCreamsController < ApplicationController
   before_action :set_ice_cream, only:[:show, :edit, :update]
+  before_action :redirect_if_not_logged_in
+
   def new
     @ice_cream = IceCream.new
     @ice_cream.build_brand
@@ -30,7 +32,6 @@ class IceCreamsController < ApplicationController
   end
 
   def update
-
     if @ice_cream.update(ice_cream_params)
       redirect_to ice_cream_path(@ice_cream)
     else
