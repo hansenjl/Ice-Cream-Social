@@ -44,11 +44,11 @@ class IceCreamsController < ApplicationController
   private
 
   def ice_cream_params
-    params.require(:ice_cream).permit(:flavor, :description, :brand_id, brand_attributes: [:name])
+    params.require(:ice_cream).permit(:description, :brand_id, brand_attributes: [:name])
   end
 
   def set_ice_cream
-     @ice_cream = IceCream.find_by_id(params[:id])
+     @ice_cream = IceCream.find_by(params[:id])
      redirect_to ice_creams_path if !@ice_cream
   end
 
