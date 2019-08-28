@@ -31,9 +31,12 @@ class IceCream < ApplicationRecord
     end
   end
 
+  def brand_name
+    brand.try(:name)
+  end
 
   def flavor_and_brand
-    "#{flavor} - #{brand.name}"
+    "#{flavor} - #{brand.try(:name)}"
   end
 
 
