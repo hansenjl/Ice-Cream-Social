@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
       #did we find someone & did they put in the right password?
       #if @user && @user.authenticate(params[:user][:password])
 
-      if @user.try(:authenticate, params[:user][:password])
+      if @user && @user.authenticate(password: params[:user][:password])
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
