@@ -26,7 +26,8 @@ class IceCream < ApplicationRecord
 
   def not_a_duplicate
     # if there is already an ice cream with that flavor && brand, throw an error
-    if !!IceCream.find_by(flavor: flavor, brand_id: brand_id)
+    ice_cream = IceCream.find_by(flavor: flavor, brand_id: brand_id)
+    if !!ice_cream && ice_cream != self
       errors.add(:flavor, 'has already been added for that brand')
     end
   end
