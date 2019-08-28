@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :redirect_if_not_logged_in
+
 
   def new
     if @ice_cream = IceCream.find_by_id(params[:ice_cream_id])
