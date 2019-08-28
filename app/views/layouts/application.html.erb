@@ -9,14 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <div>
-    <%= link_to "Log Out", logout_path, method: :delete %>
-    <%= link_to "Add an Ice Cream", new_ice_cream_path %>
-    <%= link_to "All Ice Creams", ice_creams_path %>
-    <%= link_to "Add a Review", new_review_path %>
-    <%= link_to "All Reviews", reviews_path %>
-    <%= link_to "All Brands", brands_path %>
-  </div>
+   <div><%= render_nav_bar %></div>
 
   <body>
     <%= yield %>
