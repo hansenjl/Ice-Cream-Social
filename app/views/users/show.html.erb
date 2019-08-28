@@ -1,6 +1,6 @@
-<h1>Welcome <%= @user.username%>! </h1>
+<h1>Welcome to <%= @user.username%>'s homepage! </h1>
 
-<h3>Here are the ice creams you've reviewed:</h3>
+<h3>Here are the ice creams reviewed by <%=@user.username%>:</h3>
 <ul>
   <% @user.reviewed_ice_creams.each do |ic|%>
   <li> <%= link_to ic.flavor_and_brand, ice_cream_path(ic)%> </li>
