@@ -1,12 +1,19 @@
 <h1><%= @ice_cream.flavor%>  </h1>
 
+
 <% if @ice_cream.image.attached? %>
   <%= image_tag url_for(@ice_cream.image) %>
 <% end %>
 
-<h2> <%= @ice_cream.brand.name %> </h2>
+<h2> <%= @ice_cream.brand_name %> </h2>
 <div>
   <p><%= @ice_cream.description %></p>
 </div>
 
+<h3>Added by: <%= link_to @ice_cream.user, user_path(@user)%> </h3>
+
 <%= link_to "Edit #{@ice_cream.flavor}", edit_ice_cream_path(@ice_cream) if @ice_cream.user == current_user%>
+
+<br></br>
+
+<%= link_to "See all Reviews", ice_cream_reviews_path(@ice_cream) %>
