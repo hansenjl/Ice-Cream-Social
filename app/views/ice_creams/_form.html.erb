@@ -1,5 +1,5 @@
-<%= render partial: 'layouts/errors', locals: {object: @ice_cream}  %>
-<%= form_for(@ice_cream) do |f|%>
+<%= render partial: 'errors', locals: {object: @ice_cream}  %>
+<% form_for(@ice_cream) do |f|%>
   <div>
     <%= f.label :flavor %>
     <%= f.text_field :flavor %>
